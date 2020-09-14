@@ -66,6 +66,7 @@ namespace GiftMacroBrowser
         {
             HMExtension hm = new HMExtension(doc);
             var codeList = hm.parseCode(textData);
+            HtmlElement chargeButton = HtmlUtils.GetElementsByClass(doc, "input", "btn60 btn_4 btnCharge");
 
             if (codeList == null)
                 return;
@@ -81,14 +82,14 @@ namespace GiftMacroBrowser
                 await hm.DoInputCode(j+1, codeList[j]);
                 if(j == 9)
                 {
-                    hm.Charge();
+                    hm.Charge(chargeButton);
                     codeList.RemoveRange(0, 10);
                 }
             }
 
             if (codeList.Count > 0)
             {
-                hm.Charge();
+                hm.Charge(chargeButton);
                 codeList.Clear();
             }
         }
@@ -96,16 +97,15 @@ namespace GiftMacroBrowser
         /// <summary>
         /// 동작안하고 있음;;
         /// </summary>
-        private void Charge()
+        private void Charge(HtmlElement button)
         {
-            var els = HtmlUtils.GetElementsByClassName(doc, "btnCharge");
-            if (els.Count < 1)
+            if (button == null)
             {
                 Console.WriteLine("Failed to find Charge Button");
                 return;
             }
 
-            els[0].InvokeMember("click");
+            button.InvokeMember("click");
         }
 
 
