@@ -20,8 +20,9 @@ namespace GiftMacroBrowser
         {
             InitializeComponent();
             this.web.Url = new Uri("http://www.happymoney.co.kr");
+            this.web.ScriptErrorsSuppressed = true;
         }
-        
+
         private void web_NewWindow(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
@@ -51,7 +52,7 @@ namespace GiftMacroBrowser
             switch(macroData.CodeType)
             {
                 case GiftCodeType.HappyMoneyCash:
-
+                    HtmlUtils.DisableAlertPopup(web);
                     HMExtension.ExcuteMacro(web.Document, macroData.TextData);
                     break;
             }

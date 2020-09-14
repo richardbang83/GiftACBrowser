@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mshtml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,33 @@ namespace GiftMacroBrowser
 
             return list;
         }
+        public static HtmlElement GetElementsByClass(HtmlDocument doc, string type, string className)
+        {
+            var buttons = doc.GetElementsByTagName(type);
 
+            foreach (HtmlElement button in buttons)
+            {
+                if (button.GetAttribute("className") == className)
+                {
+                    return button;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Make alert dom element and added
+        /// </summary>
+        /// <param name="web"></param>
+        public static void DisableAlertPopup(WebBrowser web)
+        {
+            HtmlElement head = web.Document.GetElementsByTagName("head")[0];
+            HtmlElement scriptEl = web.Document.CreateElement("script");
+            IHTMLScriptElement element = (IHTMLScriptElement)scriptEl.DomElement;
+            string alertBlocker = @"window.alert = function () { }; window.confirm=function () { };";
+            element.text = alertBlocker;
+            head.AppendChild(scriptEl);
+        }
 
     }
 }
