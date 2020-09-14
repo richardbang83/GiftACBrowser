@@ -1,0 +1,6 @@
+﻿namespace GiftMacroBrowser
+{
+    interface GiftExtension
+    {
+    }
+}
