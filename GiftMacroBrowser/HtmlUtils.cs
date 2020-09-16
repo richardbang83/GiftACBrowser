@@ -1,5 +1,4 @@
-﻿using MSHTML;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,9 +51,7 @@ namespace GiftMacroBrowser
         {
             HtmlElement head = web.Document.GetElementsByTagName("head")[0];
             HtmlElement scriptEl = web.Document.CreateElement("script");
-            IHTMLScriptElement element = (IHTMLScriptElement)scriptEl.DomElement;
-            string alertBlocker = @"window.alert = function () { }; window.confirm=function () { };";
-            element.text = alertBlocker;
+            scriptEl.SetAttribute("text", "window.alert = function () { }; window.confirm=function () { };");
             head.AppendChild(scriptEl);
         }
 
