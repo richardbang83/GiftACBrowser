@@ -1,4 +1,9 @@
 .vs
+<<<<<<< HEAD
 !*.suo
 GiftMacroBrowser/Bin
 GiftMacroBrowser/obj
+=======
+GiftMacroBrowser/Bin/**
+GiftMacroBrowser/obj/**
+>>>>>>> parent of 0cde8bd... Update .gitignore
