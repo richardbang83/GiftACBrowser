@@ -1,4 +1,4 @@
-﻿using mshtml;
+﻿using MSHTML;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +40,9 @@ namespace GiftMacroBrowser
             }
             return null;
         }
+
+
+
 
         /// <summary>
         /// Make alert dom element and added

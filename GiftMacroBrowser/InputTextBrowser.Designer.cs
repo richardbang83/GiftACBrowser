@@ -30,13 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.txtCode = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,35 +68,6 @@
             this.panel1.Size = new System.Drawing.Size(145, 444);
             this.panel1.TabIndex = 0;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(15, 358);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(109, 30);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "취소";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(15, 405);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(109, 30);
-            this.btnOk.TabIndex = 0;
-            this.btnOk.Text = "확인";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // txtCode
-            // 
-            this.txtCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCode.Location = new System.Drawing.Point(3, 3);
-            this.txtCode.Multiline = true;
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(643, 444);
-            this.txtCode.TabIndex = 1;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton3);
@@ -108,6 +79,28 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "코드타입";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(12, 72);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(95, 16);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Tag = "2";
+            this.radioButton3.Text = "북스앤라이프";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(12, 46);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(71, 16);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.Tag = "1";
+            this.radioButton2.Text = "컬쳐랜드";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -122,27 +115,35 @@
             this.radioButton1.Text = "해피머니";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // btnOk
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 46);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 16);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.Tag = "1";
-            this.radioButton2.Text = "컬쳐랜드";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnOk.Location = new System.Drawing.Point(15, 405);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(109, 30);
+            this.btnOk.TabIndex = 0;
+            this.btnOk.Text = "확인";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // radioButton3
+            // btnCancel
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(12, 72);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(95, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Tag = "2";
-            this.radioButton3.Text = "북스앤라이프";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(15, 358);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(109, 30);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "취소";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // txtCode
+            // 
+            this.txtCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCode.Location = new System.Drawing.Point(3, 3);
+            this.txtCode.Multiline = true;
+            this.txtCode.Name = "txtCode";
+            this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtCode.Size = new System.Drawing.Size(643, 444);
+            this.txtCode.TabIndex = 1;
             // 
             // InputTextBrowser
             // 
