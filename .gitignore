@@ -1,3 +1,3 @@
-.vs
-GiftMacroBrowser/Bin
-GiftMacroBrowser/obj
+.vs/**
+GiftMacroBrowser/Bin/**
+GiftMacroBrowser/obj/**
