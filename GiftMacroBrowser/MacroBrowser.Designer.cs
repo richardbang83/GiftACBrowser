@@ -38,7 +38,6 @@
             this.환경설정ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.입력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPopupCodeBrowser = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuImportTxtFile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExcute = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +65,8 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 981);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -118,6 +119,7 @@
             this.메뉴ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.로그인ToolStripMenuItem1,
             this.환경설정ToolStripMenuItem1});
+            this.메뉴ToolStripMenuItem.Enabled = false;
             this.메뉴ToolStripMenuItem.Name = "메뉴ToolStripMenuItem";
             this.메뉴ToolStripMenuItem.Size = new System.Drawing.Size(43, 26);
             this.메뉴ToolStripMenuItem.Text = "메뉴";
@@ -125,20 +127,19 @@
             // 로그인ToolStripMenuItem1
             // 
             this.로그인ToolStripMenuItem1.Name = "로그인ToolStripMenuItem1";
-            this.로그인ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.로그인ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.로그인ToolStripMenuItem1.Text = "로그인";
             // 
             // 환경설정ToolStripMenuItem1
             // 
             this.환경설정ToolStripMenuItem1.Name = "환경설정ToolStripMenuItem1";
-            this.환경설정ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.환경설정ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.환경설정ToolStripMenuItem1.Text = "환경설정";
             // 
             // 입력ToolStripMenuItem
             // 
             this.입력ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPopupCodeBrowser,
-            this.menuImportTxtFile,
             this.menuExcute});
             this.입력ToolStripMenuItem.Name = "입력ToolStripMenuItem";
             this.입력ToolStripMenuItem.Size = new System.Drawing.Size(43, 26);
@@ -147,21 +148,14 @@
             // menuPopupCodeBrowser
             // 
             this.menuPopupCodeBrowser.Name = "menuPopupCodeBrowser";
-            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(158, 22);
+            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(180, 22);
             this.menuPopupCodeBrowser.Text = "상품권코드입력";
             this.menuPopupCodeBrowser.Click += new System.EventHandler(this.menuInputCode_Click);
-            // 
-            // menuImportTxtFile
-            // 
-            this.menuImportTxtFile.Name = "menuImportTxtFile";
-            this.menuImportTxtFile.Size = new System.Drawing.Size(158, 22);
-            this.menuImportTxtFile.Text = "파일불러오기";
-            this.menuImportTxtFile.Click += new System.EventHandler(this.menuImportTxtFile_Click);
             // 
             // menuExcute
             // 
             this.menuExcute.Name = "menuExcute";
-            this.menuExcute.Size = new System.Drawing.Size(158, 22);
+            this.menuExcute.Size = new System.Drawing.Size(180, 22);
             this.menuExcute.Text = "실행하기";
             this.menuExcute.Click += new System.EventHandler(this.menuExcute_Click);
             // 
@@ -217,10 +211,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 981);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MacroBrowser";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MacroBrowser";
+            this.Text = "Gift Automatic Charging Browser v0.1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -247,7 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem 환경설정ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 입력ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuPopupCodeBrowser;
-        private System.Windows.Forms.ToolStripMenuItem menuImportTxtFile;
         private System.Windows.Forms.ToolStripMenuItem menuExcute;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
