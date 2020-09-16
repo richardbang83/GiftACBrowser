@@ -2,4 +2,5 @@
 **/bin/
 **/obj/
 **/*.cache
-GiftMacroBrowser/obj/Debug/GiftMacroBrowser.csproj.FileListAbsolute.txt
+GiftMacroBrowser/obj/Debug/*.*
+
