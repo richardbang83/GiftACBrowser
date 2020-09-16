@@ -53,7 +53,7 @@ namespace GiftMacroBrowser
             {
                 case GiftCodeType.HappyMoneyCash:
                     HtmlUtils.DisableAlertPopup(web);
-                    HMExtension.ExcuteMacro(web.Document, macroData.TextData);
+                    HMExtension.ExcuteMacro(web, macroData.TextData);
                     break;
             }
 

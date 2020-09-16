@@ -20,3 +20,5 @@ E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.Ge
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.CoreCompileInputs.cache
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.exe
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\Interop.MSHTML.dll
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.ResolveComReference.cache

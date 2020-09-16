@@ -78,6 +78,7 @@
             this.web.Name = "web";
             this.web.Size = new System.Drawing.Size(1264, 951);
             this.web.TabIndex = 7;
+            this.web.NewWindow += new System.ComponentModel.CancelEventHandler(this.web_NewWindow);
             // 
             // splitContainer1
             // 
@@ -124,13 +125,13 @@
             // 로그인ToolStripMenuItem1
             // 
             this.로그인ToolStripMenuItem1.Name = "로그인ToolStripMenuItem1";
-            this.로그인ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.로그인ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.로그인ToolStripMenuItem1.Text = "로그인";
             // 
             // 환경설정ToolStripMenuItem1
             // 
             this.환경설정ToolStripMenuItem1.Name = "환경설정ToolStripMenuItem1";
-            this.환경설정ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.환경설정ToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.환경설정ToolStripMenuItem1.Text = "환경설정";
             // 
             // 입력ToolStripMenuItem
@@ -146,21 +147,21 @@
             // menuPopupCodeBrowser
             // 
             this.menuPopupCodeBrowser.Name = "menuPopupCodeBrowser";
-            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(180, 22);
+            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(158, 22);
             this.menuPopupCodeBrowser.Text = "상품권코드입력";
             this.menuPopupCodeBrowser.Click += new System.EventHandler(this.menuInputCode_Click);
             // 
             // menuImportTxtFile
             // 
             this.menuImportTxtFile.Name = "menuImportTxtFile";
-            this.menuImportTxtFile.Size = new System.Drawing.Size(180, 22);
+            this.menuImportTxtFile.Size = new System.Drawing.Size(158, 22);
             this.menuImportTxtFile.Text = "파일불러오기";
             this.menuImportTxtFile.Click += new System.EventHandler(this.menuImportTxtFile_Click);
             // 
             // menuExcute
             // 
             this.menuExcute.Name = "menuExcute";
-            this.menuExcute.Size = new System.Drawing.Size(180, 22);
+            this.menuExcute.Size = new System.Drawing.Size(158, 22);
             this.menuExcute.Text = "실행하기";
             this.menuExcute.Click += new System.EventHandler(this.menuExcute_Click);
             // 
