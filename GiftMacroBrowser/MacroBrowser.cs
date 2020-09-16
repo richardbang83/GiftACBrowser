@@ -1,8 +1,10 @@
-﻿using GNet.IO;
+﻿using ACBrowser;
+using GNet.IO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,7 @@ namespace GiftMacroBrowser
             InitializeComponent();
             this.web.Url = new Uri("http://www.happymoney.co.kr");
             this.web.ScriptErrorsSuppressed = true;
+            
         }
 
         private void web_NewWindow(object sender, CancelEventArgs e)
@@ -41,11 +44,6 @@ namespace GiftMacroBrowser
             macroData = popup.InputData;   
         }
 
-        private void menuImportTxtFile_Click(object sender, EventArgs e)
-        {
-            // 문자열에서 상품권의 종류를 파싱하는것이 필요함.
-
-        }
 
         private void menuExcute_Click(object sender, EventArgs e)
         {
@@ -58,5 +56,31 @@ namespace GiftMacroBrowser
             }
 
         }
+
+        const int WM_KEYDOWN = 0x0100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105;
+        Keys lastKeyPressed = Keys.None;
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if ((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN))
+            {
+                lastKeyPressed = keyData;
+                switch (keyData)
+                {
+                    case Keys.F1:
+                        this.transparentPanel1.Enabled = true;
+                        this.transparentPanel1.BringToFront();
+                        break;
+                    case Keys.F2:
+                        this.transparentPanel1.Enabled = false;
+                        this.web.BringToFront();
+                        break;
+                }
+                Refresh();
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
     }
 }

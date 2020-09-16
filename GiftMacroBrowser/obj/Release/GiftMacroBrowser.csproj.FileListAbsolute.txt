@@ -10,16 +10,14 @@ E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\bin\Release\Gif
 E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Release\GiftMacroBrowser.exe
 E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Release\GiftMacroBrowser.pdb
 E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Release\GiftMacroBrowser.UserControl1.resources
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\GiftMacroBrowser.exe.config
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\GiftMacroBrowser.exe
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\GiftMacroBrowser.pdb
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.csprojAssemblyReference.cache
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\Interop.MSHTML.dll
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.csproj.ResolveComReference.cache
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.InputTextBrowser.resources
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.MacroBrowser.resources
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.Properties.Resources.resources
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.csproj.GenerateResource.cache
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.csproj.CoreCompileInputs.cache
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.exe
-E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\GiftMacroBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\ACBrowser.exe.config
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\ACBrowser.exe
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Release\ACBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\ACBrowser.Properties.Resources.resources
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\ACBrowser.exe
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Release\ACBrowser.pdb
