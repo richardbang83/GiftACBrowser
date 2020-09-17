@@ -2,9 +2,9 @@
 해피머니 상품권을 자동으로 입력하는 프로그램입니다.
 
 <p>
-현재 버전 : v0.1
-제작자 : RichardBang
-First Release Date : 2020.09.17
+현재 버전 : v0.1<br>
+제작자 : Richard Bang<br>
+First Release Date : 2020.09.17<br>
 </p>
 
 
