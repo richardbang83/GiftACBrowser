@@ -43,8 +43,6 @@ First Release Date : 2020.09.17<br>
 추가 되었으면 하는 내용이 있으면 메일을 주시면 추가 검토 하겠습니다.
 다른 contributor들도 환영합니다.
 
-<a href="mailto:richard.bang83@gmail.com">메일보내기<a>
-    
   
 
 
