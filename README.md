@@ -1,12 +1,10 @@
 # GiftMacroBrowser
 해피머니 상품권을 자동으로 입력하는 프로그램입니다.
 
-<p>
+
 현재 버전 : v0.1<br>
 제작자 : Richard Bang<br>
 First Release Date : 2020.09.17<br>
-</p>
-
 
 ## 사용방법
 브라우저를 실행하면 고정으로 해피머니의 홈페이지가 나옵니다.
@@ -21,6 +19,7 @@ First Release Date : 2020.09.17<br>
 
 현재 해피머니의 인식하는 문자열 패턴은 다음과 같습니다.
    <ul>
+
   <li>xxxx-xxxx-xxxx-xxxx_yyyyMMdd 예)1111-2222-3333-4444_20200701
   </ul>
 
