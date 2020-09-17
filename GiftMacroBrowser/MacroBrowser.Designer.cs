@@ -45,8 +45,8 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.web = new System.Windows.Forms.WebBrowser();
             this.transparentPanel1 = new ACBrowser.TransparentPanel(this.components);
+            this.web = new System.Windows.Forms.WebBrowser();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -211,6 +211,17 @@
             this.panel1.Size = new System.Drawing.Size(1264, 951);
             this.panel1.TabIndex = 7;
             // 
+            // transparentPanel1
+            // 
+            this.transparentPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.transparentPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transparentPanel1.Enabled = false;
+            this.transparentPanel1.Location = new System.Drawing.Point(0, 0);
+            this.transparentPanel1.Name = "transparentPanel1";
+            this.transparentPanel1.Opacity = 40;
+            this.transparentPanel1.Size = new System.Drawing.Size(1264, 951);
+            this.transparentPanel1.TabIndex = 1;
+            // 
             // web
             // 
             this.web.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -221,16 +232,6 @@
             this.web.Size = new System.Drawing.Size(1264, 951);
             this.web.TabIndex = 0;
             this.web.NewWindow += new System.ComponentModel.CancelEventHandler(this.web_NewWindow);
-            // 
-            // transparentPanel1
-            // 
-            this.transparentPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.transparentPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transparentPanel1.Location = new System.Drawing.Point(0, 0);
-            this.transparentPanel1.Name = "transparentPanel1";
-            this.transparentPanel1.Opacity = 40;
-            this.transparentPanel1.Size = new System.Drawing.Size(1264, 951);
-            this.transparentPanel1.TabIndex = 1;
             // 
             // MacroBrowser
             // 

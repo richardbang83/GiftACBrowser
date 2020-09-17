@@ -23,7 +23,6 @@ namespace GiftMacroBrowser
             InitializeComponent();
             this.web.Url = new Uri("http://www.happymoney.co.kr");
             this.web.ScriptErrorsSuppressed = true;
-            
         }
 
         private void web_NewWindow(object sender, CancelEventArgs e)
@@ -60,27 +59,29 @@ namespace GiftMacroBrowser
         const int WM_KEYDOWN = 0x0100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105;
         Keys lastKeyPressed = Keys.None;
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if ((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN))
-            {
-                lastKeyPressed = keyData;
-                switch (keyData)
-                {
-                    case Keys.F1:
-                        this.transparentPanel1.Enabled = true;
-                        this.transparentPanel1.BringToFront();
-                        break;
-                    case Keys.F2:
-                        this.transparentPanel1.Enabled = false;
-                        this.web.BringToFront();
-                        break;
-                }
-                Refresh();
-            }
-
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
+//         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+//         {
+//             if ((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN))
+//             {
+//                 lastKeyPressed = keyData;
+//                 switch (keyData)
+//                 {
+//                     case Keys.F1:
+//                         this.transparentPanel1.Enabled = true;
+//                         this.transparentPanel1.BringToFront();
+//                         Refresh();
+//                         break;
+//                     case Keys.F2:
+//                         this.transparentPanel1.Enabled = false;
+//                         this.web.BringToFront();
+//                         Refresh();
+//                         break;
+//                 }
+//                 
+//             }
+// 
+//             return base.ProcessCmdKey(ref msg, keyData);
+//         }
 
     }
 }
