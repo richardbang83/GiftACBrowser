@@ -21,7 +21,7 @@ First Release Date : 2020.09.17<br>
 
 현재 해피머니의 인식하는 문자열 패턴은 다음과 같습니다.
    <ul>
-  <li>xxxx-xxxx-xxxx-xxxx_yyyyMMdd
+  <li>xxxx-xxxx-xxxx-xxxx_yyyyMMdd 예)1111-2222-3333-4444_20200701
   </ul>
 
 ## ChangeLog
