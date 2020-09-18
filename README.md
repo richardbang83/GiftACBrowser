@@ -1,4 +1,4 @@
-# GiftMacroBrowser
+# Gift Automatic Charging Browser
 해피머니 상품권을 자동으로 입력하는 프로그램입니다.
 
 
