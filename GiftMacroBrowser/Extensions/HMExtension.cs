@@ -8,16 +8,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiftMacroBrowser
+namespace GiftACBrowser
 {
-    public class HMCode
+    public class HMExtension
     {
-        public List<string> pinNums = new List<string>();
-        public string issuedate;
-    }
+        public class HMCode
+        {
+            public List<string> pinNums = new List<string>();
+            public string issuedate;
+        }
 
-    internal class HMExtension
-    {
         private WebBrowser web;
         private HtmlDocument doc;
         private CountdownEvent cdeNav;
@@ -29,6 +29,13 @@ namespace GiftMacroBrowser
             this.web.Navigated += Web_Navigated;
         }
 
+        public Task GoToLogin() => Navigate("https://www.happymoney.co.kr/svc/login/login.hm");
+
+        private Task GoToGiftCharge() => Navigate("https://www.happymoney.co.kr/svc/cash/giftCardCharge.hm");
+
+
+
+
         private void Web_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             if(cdeNav != null && cdeNav.CurrentCount > 0)
@@ -36,7 +43,7 @@ namespace GiftMacroBrowser
                 cdeNav.Signal();
             }
         }
-
+        
         private void AddTen()
         {
             var el = doc.GetElementById("addTen");
@@ -75,7 +82,7 @@ namespace GiftMacroBrowser
             return null;
         }
 
-        private Task Navigate(Uri url)
+        private Task Navigate(string url)
         {
             cdeNav = new CountdownEvent(1);
             web.Navigate(url);
@@ -102,34 +109,32 @@ namespace GiftMacroBrowser
             return null;
         }
 
-        internal static async void ExcuteMacro(WebBrowser web, string textData)
+        internal async void ExcuteMacro(string textData)
         {
-            HMExtension hm = new HMExtension(web);
-            var doc = hm.doc;
-
-            var codeList = hm.parseCode(textData);
+            var codeList = parseCode(textData);
 
             if (codeList == null)
                 return;
 
             while (codeList.Count > 0)
             {
-                await hm.Navigate(new Uri("https://www.happymoney.co.kr/svc/cash/giftCardCharge.hm"));
+                await GoToGiftCharge();
+                //await Navigate(new Uri("https://www.happymoney.co.kr/svc/cash/giftCardCharge.hm"));
                 await Task.Delay(1000);
 
                 HtmlUtils.DisableAlertPopup(web);
 
                 // 결제비밀번호 사용안내 layer popup 종료
-                var closeButton = hm.GetElementsClose();
+                var closeButton = GetElementsClose();
                 HtmlElement chargeButton = HtmlUtils.GetElementsByClass(doc, "input", "btn60 btn_4 btnCharge");
 
                 // 결제 비밀번호 창 닫기
-                hm.ClickButton(closeButton);
+                ClickButton(closeButton);
                 await Task.Delay(300);                
 
                 if (codeList.Count > 5)
                 {
-                    hm.AddTen();
+                    AddTen();
                     await Task.Delay(500);
                 }
 
@@ -138,14 +143,14 @@ namespace GiftMacroBrowser
                     codeList.Take(10).ToList().ForEach(h =>
                     {
                         var idx = codeList.IndexOf(h);
-                        hm.DoInputCode(idx + 1, h).Wait();
+                        DoInputCode(idx + 1, h).Wait();
                         cpltCode.Add(h);
                     })
                 );
 
                 cpltCode.ForEach(ch => codeList.Remove(ch));
 
-                hm.ClickButton(chargeButton);
+                ClickButton(chargeButton);
 
                 await Task.Delay(2000);
                 if (codeList.Count == 0)
@@ -155,6 +160,8 @@ namespace GiftMacroBrowser
 
             }
         }
+
+        
 
         private void ClickButton(HtmlElement button)
         {
@@ -172,20 +179,31 @@ namespace GiftMacroBrowser
         {
             var pwdEl = doc.GetElementById($"pinNo1_{idx}");
             pwdEl.Focus();
+            await Task.Delay(100);
+            pwdEl.InnerText = code.pinNums[0];
 
-            for (int j = 0; j < code.pinNums.Count; j++)
-            {
-                pwdEl = doc.GetElementById($"pinNo{j + 1}_{idx}");
-                pwdEl.Focus();
+            pwdEl = doc.GetElementById($"pinNo2_{idx}");
+            pwdEl.Focus();
+            await Task.Delay(100);
+            InputSimulator.Write(code.pinNums[1]);
+            await Task.Delay(300);
 
-                InputSimulator.Write(code.pinNums[j]);
-                await Task.Delay(300);
-            }
+            pwdEl = doc.GetElementById($"pinNo3_{idx}");
+            pwdEl.Focus();
+            await Task.Delay(100);
+            pwdEl.InnerText = code.pinNums[2];
+
+            pwdEl = doc.GetElementById($"pinNo4_{idx}");
+            pwdEl.Focus();
+            await Task.Delay(100);
+            InputSimulator.Write(code.pinNums[3]);
+            await Task.Delay(300);
+
 
             pwdEl = doc.GetElementById($"issuedDate_{idx}");
             pwdEl.Focus();
-
-            InputSimulator.Write(code.issuedate);
+            await Task.Delay(100);
+            pwdEl.InnerText = code.issuedate;
             await Task.Delay(300);
         }
     }

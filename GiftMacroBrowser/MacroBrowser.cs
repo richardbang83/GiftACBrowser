@@ -12,17 +12,24 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiftMacroBrowser
+
+namespace GiftACBrowser
 {
     public partial class MacroBrowser : Form
     {
         MacroData macroData;
+        HMExtension hm;
+        CLExtension cl;
+        BLExtension bl;
+
 
         public MacroBrowser()
         {
             InitializeComponent();
-            this.web.Url = new Uri("http://www.happymoney.co.kr");
+
+
             this.web.ScriptErrorsSuppressed = true;
+            
         }
 
         private void web_NewWindow(object sender, CancelEventArgs e)
@@ -46,17 +53,59 @@ namespace GiftMacroBrowser
 
         private void menuExcute_Click(object sender, EventArgs e)
         {
-            switch(macroData.CodeType)
+//             bl.ExcuteMacro("");
+//             return;
+
+            HtmlUtils.DisableAlertPopup(web);
+            switch (macroData.CodeType)
             {
                 case GiftCodeType.HappyMoneyCash:
-                    HtmlUtils.DisableAlertPopup(web);
-                    HMExtension.ExcuteMacro(web, macroData.TextData);
+                    hm = new HMExtension(web);
+                    hm.ExcuteMacro(macroData.TextData);
+                    break;
+
+                case GiftCodeType.BookNLife:
+                    bl.ExcuteMacro(macroData.TextData);
+                    break;
+
+                case GiftCodeType.Cultureland:
+                    cl.ExcuteMacro(macroData.TextData);
                     break;
             }
 
         }
 
         const int WM_KEYDOWN = 0x0100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105;
+
+        private void MacroBrowser_Load(object sender, EventArgs e)
+        {
+            hm = new HMExtension(web);
+            bl = new BLExtension(web);
+            cl = new CLExtension(web);
+
+            //bl.GoToLogin();
+            this.web.Navigate("localhost:5500");
+        }
+
+        private void toolNavHM_Click(object sender, EventArgs e)
+        {
+            hm.GoToLogin();
+            
+        }
+
+        private void toolNavCL_Click(object sender, EventArgs e)
+        {
+            cl.GoToLogin();
+        }
+
+        private void toolNavBL_Click(object sender, EventArgs e)
+        {
+            //bl.GoToLogin();
+            this.web.Navigate("localhost:5500");
+        }
+
+        
+
         Keys lastKeyPressed = Keys.None;
 
 //         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

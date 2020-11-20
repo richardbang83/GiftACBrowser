@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GiftMacroBrowser
+namespace GiftACBrowser
 {
     public static class HtmlUtils
     {
@@ -53,7 +53,10 @@ namespace GiftMacroBrowser
             HtmlElement scriptEl = web.Document.CreateElement("script");
             scriptEl.SetAttribute("text", "window.alert = function () { }; window.confirm=function () { };");
             head.AppendChild(scriptEl);
+            
         }
+
+        
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace GiftMacroBrowser
+﻿namespace GiftACBrowser
 {
     partial class MacroBrowser
     {
@@ -40,9 +40,9 @@
             this.menuPopupCodeBrowser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExcute = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolNavHM = new System.Windows.Forms.ToolStripButton();
+            this.toolNavBL = new System.Windows.Forms.ToolStripButton();
+            this.toolNavCL = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.transparentPanel1 = new ACBrowser.TransparentPanel(this.components);
@@ -158,9 +158,9 @@
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.toolNavHM,
+            this.toolNavBL,
+            this.toolNavCL,
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -168,32 +168,37 @@
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolNavHM
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 27);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolNavHM.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toolNavHM.BackgroundImage")));
+            this.toolNavHM.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNavHM.Image = ((System.Drawing.Image)(resources.GetObject("toolNavHM.Image")));
+            this.toolNavHM.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNavHM.Name = "toolNavHM";
+            this.toolNavHM.Size = new System.Drawing.Size(23, 27);
+            this.toolNavHM.Text = "Go to HappyMoney";
+            this.toolNavHM.ToolTipText = "Go to HappyMoney";
+            this.toolNavHM.Click += new System.EventHandler(this.toolNavHM_Click);
             // 
-            // toolStripButton2
+            // toolNavBL
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 27);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolNavBL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNavBL.Image = ((System.Drawing.Image)(resources.GetObject("toolNavBL.Image")));
+            this.toolNavBL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNavBL.Name = "toolNavBL";
+            this.toolNavBL.Size = new System.Drawing.Size(23, 27);
+            this.toolNavBL.Text = "Go to BookNLife";
+            this.toolNavBL.Click += new System.EventHandler(this.toolNavBL_Click);
             // 
-            // toolStripButton3
+            // toolNavCL
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 27);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolNavCL.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNavCL.Image = ((System.Drawing.Image)(resources.GetObject("toolNavCL.Image")));
+            this.toolNavCL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNavCL.Name = "toolNavCL";
+            this.toolNavCL.Size = new System.Drawing.Size(23, 27);
+            this.toolNavCL.Text = "Go to Cultureland";
+            this.toolNavCL.Click += new System.EventHandler(this.toolNavCL_Click);
             // 
             // toolStripSeparator1
             // 
@@ -243,6 +248,7 @@
             this.Name = "MacroBrowser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Automatic Charging Browser v0.1";
+            this.Load += new System.EventHandler(this.MacroBrowser_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -271,9 +277,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuPopupCodeBrowser;
         private System.Windows.Forms.ToolStripMenuItem menuExcute;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolNavBL;
+        private System.Windows.Forms.ToolStripButton toolNavHM;
+        private System.Windows.Forms.ToolStripButton toolNavCL;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.WebBrowser web;

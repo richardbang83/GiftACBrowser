@@ -1,4 +1,4 @@
-﻿namespace GiftMacroBrowser
+﻿namespace GiftACBrowser
 {
     interface GiftExtension
     {
