@@ -1,0 +1,29 @@
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\bin\Debug\GiftMacroBrowser.exe.config
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\bin\Debug\GiftMacroBrowser.exe
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\bin\Debug\GiftMacroBrowser.pdb
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.InputTextBrowser.resources
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.MacroBrowser.resources
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.Properties.Resources.resources
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.UserControl1.resources
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.GenerateResource.cache
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.CoreCompileInputs.cache
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.exe
+E:\Richard Documents\Selenium\NetWebBrowserTest\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\GiftACBrowser.exe.config
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\GiftACBrowser.exe
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\GiftACBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\HtmlAgilityPack.dll
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\HtmlAgilityPack.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\bin\Debug\HtmlAgilityPack.xml
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csprojAssemblyReference.cache
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\Interop.MSHTML.dll
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.ResolveComReference.cache
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.InputTextBrowser.resources
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.MacroBrowser.resources
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.Properties.Resources.resources
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.GenerateResource.cache
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.CoreCompileInputs.cache
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.CopyComplete
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.exe
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.GiftCoouponBrowser.resources
