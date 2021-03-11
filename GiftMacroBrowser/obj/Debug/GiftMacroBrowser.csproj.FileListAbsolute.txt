@@ -26,3 +26,4 @@ E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.Co
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftMacroBrowser.csproj.CopyComplete
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.exe
 E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.pdb
+E:\GitHub\GiftMacroBrowser\GiftMacroBrowser\obj\Debug\GiftACBrowser.GiftCoouponBrowser.resources

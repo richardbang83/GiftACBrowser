@@ -45,11 +45,8 @@ namespace GiftACBrowser
             var hhtmlWeb = new HtmlWeb();
             var htmlDoc =  hhtmlWeb.Load(web.Document.Url.AbsoluteUri);
 
-            
-            
             var node = htmlDoc.DocumentNode.SelectNodes("/html/body/form[1]/div[3]/div[2]/div/div[2]/div/div[1]/fieldset/p[3]/input");
 
-            web.Document.GetElementById("frmCashCharge");
             var chargeNode = web.Document.GetElementById("frmCashCharge");
 
             //htmlDoc.Load(doc.Url.AbsoluteUri);

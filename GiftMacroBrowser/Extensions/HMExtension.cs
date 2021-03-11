@@ -18,6 +18,8 @@ namespace GiftACBrowser
             public string issuedate;
         }
 
+        
+
         private WebBrowser web;
         private HtmlDocument doc;
         private CountdownEvent cdeNav;
@@ -55,7 +57,7 @@ namespace GiftACBrowser
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        private List<HMCode> parseCode(string strCode)
+        private List<HMCode> parseCashCode(string strCode)
         {
             Regex regex = new Regex(@"([0-9]{4})-([0-9]{4})-([0-9]{4})-([0-9]{4})_([0-9]{8})");
             var trimStr = strCode.Replace(" ", "");
@@ -109,9 +111,125 @@ namespace GiftACBrowser
             return null;
         }
 
+
+        public async void ExcuteGiftMacro()
+        {
+            GiftCoouponBrowser br = new GiftCoouponBrowser();
+            br.ShowDialog();
+
+            if (br.DialogResult == DialogResult.OK)
+            {
+                // 브라우저에서 매치 코드 찾기 
+                var codeList = parseGiftCode(br.InputCode);
+
+                // 팝업 없애기
+                
+
+                // 충전 페이지로 이동
+                await Navigate("https://www.happymoney.co.kr/svc/card/exchangeCoupon.hm");
+                await Task.Delay(1000);
+
+
+                
+
+                await Task.Run(() =>{
+                    foreach (var cd in codeList)
+                    {
+                        // 원하는 쿠폰 선택 ex) giftcoupon
+                        SelectCouponToChange();
+                        Thread.Sleep(500);
+
+                        HtmlUtils.DisableAlertPopup(doc);
+
+                        // 동의하기 버튼 클릭
+                        HtmlElement agreeBtn = doc.GetElementById("agreeThisOne");
+                        ClickButton(agreeBtn);
+                        Thread.Sleep(500);
+
+                        // 코드 입력
+                        DoGiftCoupontCode(br.PhoneNum, cd).Wait();
+                        Thread.Sleep(500);
+
+                        // 확인 버튼 입력
+                        HtmlElement confirmBtn = doc.GetElementById("couponRetrieve");
+                        ClickButton(confirmBtn);
+                        Thread.Sleep(500);
+
+                        // 해피캐시로 충전하기 버튼 입력
+                        ToHappyCash();
+                        Thread.Sleep(500);
+                    }
+                }
+                );
+            }
+        }
+
+        public HtmlElement SelectCouponToChange()
+        {
+            var buttons = doc.GetElementsByTagName("ul");
+            
+            foreach (HtmlElement button in buttons)
+            {
+                if (button.GetAttribute("className") == "inDetailBox")
+                {
+                    var cpBtn = button.Children[1].Children[0];
+                    ClickButton(cpBtn);
+                }
+            }
+            return null;
+        }
+
+
+        public void ToHappyCash()
+        {
+            var button = HtmlUtils.GetElementsByClass(doc, "div", "hpCash");
+
+            try
+            {
+                Console.WriteLine(button);
+                // 충전이 실패하면 패스 
+                if (button != null)
+                    ClickButton(button.Children[0]);
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("충전실패");
+            }
+        }
+
+
+
+        /// <summary>
+        /// gift code 패턴문자열을 확인함
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        private List<string> parseGiftCode(string strCode)
+        {
+            Regex regex = new Regex(@"[0-9]{12}");
+            var trimStr = strCode.Replace(" ", "");
+            MatchCollection matchCodes = regex.Matches(trimStr);
+
+            List<string> codeList = new List<string>();
+
+            if (matchCodes.Count > 0)
+            {
+                foreach (Match code in matchCodes)
+                {
+                    codeList.Add(code.Value);
+                }
+                return codeList;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Happy money 상품권 등록 매크로
+        /// </summary>
+        /// <param name="textData"></param>
         internal async void ExcuteMacro(string textData)
         {
-            var codeList = parseCode(textData);
+            var codeList = parseCashCode(textData);
 
             if (codeList == null)
                 return;
@@ -170,9 +288,22 @@ namespace GiftACBrowser
                 Console.WriteLine("Failed to find Charge Button");
                 return;
             }
-
             button.InvokeMember("click");
         }
+
+        private async Task DoGiftCoupontCode(string phoneNo, string couponNo)
+        {
+            var pwdEl = doc.GetElementById($"phoneNo");
+            pwdEl.Focus();
+            await Task.Delay(100);
+            pwdEl.InnerText = phoneNo;
+
+            pwdEl = doc.GetElementById($"couponNo");
+            pwdEl.Focus();
+            await Task.Delay(100);
+            pwdEl.InnerText = couponNo;
+        }
+
 
 
         private async Task DoInputCode(int idx, HMCode code)

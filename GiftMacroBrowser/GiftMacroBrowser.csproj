@@ -73,7 +73,9 @@
   <ItemGroup>
     <Compile Include="Extensions\BLExtension.cs" />
     <Compile Include="Extensions\CLExtension.cs" />
-    <Compile Include="GiftCoouponBrowser.cs" />
+    <Compile Include="GiftCoouponBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GiftCoouponBrowser.Designer.cs">
       <DependentUpon>GiftCoouponBrowser.cs</DependentUpon>
     </Compile>

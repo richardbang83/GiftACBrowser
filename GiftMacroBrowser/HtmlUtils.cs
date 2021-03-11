@@ -56,7 +56,16 @@ namespace GiftACBrowser
             
         }
 
-        
+
+        public static void DisableAlertPopup(HtmlDocument doc)
+        {
+            HtmlElement head = doc.GetElementsByTagName("head")[0];
+            HtmlElement scriptEl = doc.CreateElement("script");
+            scriptEl.SetAttribute("text", "window.alert = function () { }; window.confirm=function () { };");
+            head.AppendChild(scriptEl);
+
+        }
+
 
     }
 }

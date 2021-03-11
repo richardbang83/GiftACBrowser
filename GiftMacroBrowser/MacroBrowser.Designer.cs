@@ -47,6 +47,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.transparentPanel1 = new ACBrowser.TransparentPanel(this.components);
             this.web = new System.Windows.Forms.WebBrowser();
+
+            this.hmgiftCode = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -134,7 +136,10 @@
             // 
             this.입력ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPopupCodeBrowser,
-            this.menuExcute});
+
+            this.menuExcute,
+            this.hmgiftCode});
+
             this.입력ToolStripMenuItem.Name = "입력ToolStripMenuItem";
             this.입력ToolStripMenuItem.Size = new System.Drawing.Size(43, 26);
             this.입력ToolStripMenuItem.Text = "입력";
@@ -142,14 +147,18 @@
             // menuPopupCodeBrowser
             // 
             this.menuPopupCodeBrowser.Name = "menuPopupCodeBrowser";
-            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(158, 22);
+
+            this.menuPopupCodeBrowser.Size = new System.Drawing.Size(180, 22);
+
             this.menuPopupCodeBrowser.Text = "상품권코드입력";
             this.menuPopupCodeBrowser.Click += new System.EventHandler(this.menuInputCode_Click);
             // 
             // menuExcute
             // 
             this.menuExcute.Name = "menuExcute";
-            this.menuExcute.Size = new System.Drawing.Size(158, 22);
+
+            this.menuExcute.Size = new System.Drawing.Size(180, 22);
+
             this.menuExcute.Text = "실행하기";
             this.menuExcute.Click += new System.EventHandler(this.menuExcute_Click);
             // 
@@ -238,6 +247,15 @@
             this.web.TabIndex = 0;
             this.web.NewWindow += new System.ComponentModel.CancelEventHandler(this.web_NewWindow);
             // 
+
+            // hmgiftCode
+            // 
+            this.hmgiftCode.Name = "hmgiftCode";
+            this.hmgiftCode.Size = new System.Drawing.Size(180, 22);
+            this.hmgiftCode.Text = "기프티콘";
+            this.hmgiftCode.Click += new System.EventHandler(this.hmgiftCode_Click);
+            // 
+
             // MacroBrowser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -284,5 +302,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.WebBrowser web;
         private ACBrowser.TransparentPanel transparentPanel1;
+
+        private System.Windows.Forms.ToolStripMenuItem hmgiftCode;
+
     }
 }

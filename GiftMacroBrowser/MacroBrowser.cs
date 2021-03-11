@@ -7,6 +7,9 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+
+using System.Runtime.InteropServices;
+
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,7 +32,7 @@ namespace GiftACBrowser
 
 
             this.web.ScriptErrorsSuppressed = true;
-            
+
         }
 
         private void web_NewWindow(object sender, CancelEventArgs e)
@@ -53,27 +56,67 @@ namespace GiftACBrowser
 
         private void menuExcute_Click(object sender, EventArgs e)
         {
-//             bl.ExcuteMacro("");
-//             return;
-
-            HtmlUtils.DisableAlertPopup(web);
-            switch (macroData.CodeType)
+            try
             {
-                case GiftCodeType.HappyMoneyCash:
-                    hm = new HMExtension(web);
-                    hm.ExcuteMacro(macroData.TextData);
-                    break;
+                //HtmlUtils.DisableAlertPopup(web);
+                switch (macroData.CodeType)
+                {
+                    case GiftCodeType.HappyMoneyCash:
+                        hm = new HMExtension(web);
+                        hm.ExcuteMacro(macroData.TextData);
+                        break;
 
-                case GiftCodeType.BookNLife:
-                    bl.ExcuteMacro(macroData.TextData);
-                    break;
+                    case GiftCodeType.BookNLife:
+                        //bl = new BLExtension(web);
+                        bl.ExcuteMacro(macroData.TextData);
+                        break;
 
-                case GiftCodeType.Cultureland:
-                    cl.ExcuteMacro(macroData.TextData);
-                    break;
+                    case GiftCodeType.Cultureland:
+                        cl.ExcuteMacro(macroData.TextData);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ExceptionPrint(ex));
+
             }
 
         }
+
+
+        private string ExceptionPrint(Exception ex)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"{ex.GetType()}, {ex.Message}");
+            if (ex.InnerException != null)
+                sb.AppendLine($"InnerException:{ex.InnerException.Message}");
+
+            sb.AppendLine(ex.StackTrace);
+            //sb.AppendLine(GetLocationFromExceptionOrStackTrace(ex));
+
+            return sb.ToString();
+        }
+
+        private string GetLocationFromExceptionOrStackTrace(Exception entryException)
+        {
+            var st = new StackTrace(entryException);
+                
+
+            var sf = st.GetFrames();
+
+            if (sf == null) return "No StackTrace";
+
+            foreach (var frame in sf)
+            {
+                var method = frame.GetMethod();
+                return $"{method.DeclaringType.Name}->{method.Name}";
+            }
+            return "Unable to determine location from StackTrace";
+        }
+
+
 
         const int WM_KEYDOWN = 0x0100, WM_KEYUP = 0x0101, WM_CHAR = 0x0102, WM_SYSKEYDOWN = 0x0104, WM_SYSKEYUP = 0x0105;
 
@@ -83,8 +126,15 @@ namespace GiftACBrowser
             bl = new BLExtension(web);
             cl = new CLExtension(web);
 
-            //bl.GoToLogin();
-            this.web.Navigate("localhost:5500");
+
+            //hm.GoToLogin();
+        }
+
+        private void hmgiftCode_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Hello world");
+            hm = new HMExtension(web);
+            hm.ExcuteGiftMacro();
         }
 
         private void toolNavHM_Click(object sender, EventArgs e)
@@ -100,8 +150,9 @@ namespace GiftACBrowser
 
         private void toolNavBL_Click(object sender, EventArgs e)
         {
-            //bl.GoToLogin();
-            this.web.Navigate("localhost:5500");
+
+            bl.GoToLogin();
+
         }
 
         
