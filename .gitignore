@@ -1,7 +1,8 @@
 .vs/
 .vs/**
-**/bin/
+**/bin
 **/obj/
 **/*.cache
-GiftMacroBrowser/obj/Debug/*.*
-.vs/GiftMacroBrowser/v15/.suo
+GiftMacroBrowser/obj/**
+GiftMacroBrowser\bin\**
+GiftMacroBrowser/bin/Debug/GiftACBrowser.exe
