@@ -3,6 +3,3 @@
 **/bin
 **/obj/
 **/*.cache
-GiftMacroBrowser/obj/**
-GiftMacroBrowser\bin\**
-GiftMacroBrowser/bin/Debug/GiftACBrowser.exe
