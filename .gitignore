@@ -1,6 +1,7 @@
+.vs/
 .vs/**
 **/bin/
 **/obj/
 **/*.cache
 GiftMacroBrowser/obj/Debug/*.*
-
+.vs/GiftMacroBrowser/v15/.suo
