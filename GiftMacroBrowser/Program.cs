@@ -17,6 +17,7 @@ namespace GiftACBrowser
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MacroBrowser());
+            //Application.Run(new PopupTest());
         }
     }
 }

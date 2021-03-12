@@ -31,58 +31,12 @@ namespace GiftACBrowser
             InitializeComponent();
 
 
-            this.web.ScriptErrorsSuppressed = true;
+            //this.web.ScriptErrorsSuppressed = true;
 
         }
 
-        private void web_NewWindow(object sender, CancelEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void menuInputCode_Click(object sender, EventArgs e)
-        {
-            InputTextBrowser popup = new InputTextBrowser();
-            var res = popup.ShowDialog(this);
-            if (res != DialogResult.OK)
-            {
-                Console.WriteLine("cancel");
-                return;
-            }
-
-            macroData = popup.InputData;   
-        }
 
 
-        private void menuExcute_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //HtmlUtils.DisableAlertPopup(web);
-                switch (macroData.CodeType)
-                {
-                    case GiftCodeType.HappyMoneyCash:
-                        hm = new HMExtension(web);
-                        hm.ExcuteMacro(macroData.TextData);
-                        break;
-
-                    case GiftCodeType.BookNLife:
-                        //bl = new BLExtension(web);
-                        bl.ExcuteMacro(macroData.TextData);
-                        break;
-
-                    case GiftCodeType.Cultureland:
-                        cl.ExcuteMacro(macroData.TextData);
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ExceptionPrint(ex));
-
-            }
-
-        }
 
 
         private string ExceptionPrint(Exception ex)
@@ -122,19 +76,13 @@ namespace GiftACBrowser
 
         private void MacroBrowser_Load(object sender, EventArgs e)
         {
-            hm = new HMExtension(web);
-            bl = new BLExtension(web);
-            cl = new CLExtension(web);
 
-
-            //hm.GoToLogin();
         }
-
         private void hmgiftCode_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Hello world");
-            hm = new HMExtension(web);
-            hm.ExcuteGiftMacro();
+            //hm = new HMExtension(web);
+            //hm.ExcuteGiftMacro();
         }
 
         private void toolNavHM_Click(object sender, EventArgs e)
@@ -145,7 +93,7 @@ namespace GiftACBrowser
 
         private void toolNavCL_Click(object sender, EventArgs e)
         {
-            cl.GoToLogin();
+            cl.GotoLogin();
         }
 
         private void toolNavBL_Click(object sender, EventArgs e)

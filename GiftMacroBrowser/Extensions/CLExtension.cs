@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace GiftACBrowser
 {
 
-    public class CLExtension
+    public class CLExtension : CodeExtension
     {
         public class CLCode
         {
@@ -32,15 +32,36 @@ namespace GiftACBrowser
             var el = ("btnPlus");
             
         }
-
-        public void GoToLogin()
-        {
-            web.Navigate("https://www.cultureland.co.kr/signin/login.do");
-        }
-
+        
         internal async void  ExcuteMacro(string textData)
         {
             
+        }
+
+        public dynamic ParseCode(string codeText)
+        {
+
+            return null;
+        }
+
+        public void GotoLogin()
+        {
+            Task.Run(() => web.Navigate("https://www.cultureland.co.kr/signin/login.do"));
+        }
+
+        public string[] GetCodeStringList(string codeText)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Clear()
+        {
+            
+        }
+
+        public void ExecuteCharge(params string[] codeText)
+        {
+           
         }
     }
 }

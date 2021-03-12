@@ -10,12 +10,25 @@ using System.Windows.Forms;
 
 namespace GiftACBrowser
 {
-    public class HMExtension
+    public class HMExtension : CodeExtension
     {
+
+        enum HMCodeType
+        {
+            Cash,
+            Giftcon,
+        }
+
         public class HMCode
         {
             public List<string> pinNums = new List<string>();
             public string issuedate;
+
+            public override string ToString()
+            {
+                var result = String.Join("-", pinNums.ToArray(), issuedate);
+                return result;                
+            }
         }
 
         
@@ -34,9 +47,6 @@ namespace GiftACBrowser
         public Task GoToLogin() => Navigate("https://www.happymoney.co.kr/svc/login/login.hm");
 
         private Task GoToGiftCharge() => Navigate("https://www.happymoney.co.kr/svc/cash/giftCardCharge.hm");
-
-
-
 
         private void Web_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
@@ -112,56 +122,54 @@ namespace GiftACBrowser
         }
 
 
-        public async void ExcuteGiftMacro()
+        public async void ExcuteGiftMacro(string codeText, string phonenum)
         {
-            GiftCoouponBrowser br = new GiftCoouponBrowser();
-            br.ShowDialog();
+            doc = web.Document;
 
-            if (br.DialogResult == DialogResult.OK)
+            // 브라우저에서 매치 코드 찾기 
+            var codeList = parseGiftCode(codeText);
+
+            // 충전 페이지로 이동
+            await Navigate("https://www.happymoney.co.kr/svc/card/exchangeCoupon.hm");
+            await Task.Delay(1000);
+
+            await Task.Run(() =>
             {
-                // 브라우저에서 매치 코드 찾기 
-                var codeList = parseGiftCode(br.InputCode);
+                foreach (var cd in codeList)
+                {
+                    // 원하는 쿠폰 선택 ex) giftcoupon
+                    SelectCouponToChange();
+                    Thread.Sleep(500);
 
-                // 팝업 없애기
-                
+                    HtmlUtils.DisableAlertPopup(doc);
 
-                // 충전 페이지로 이동
-                await Navigate("https://www.happymoney.co.kr/svc/card/exchangeCoupon.hm");
-                await Task.Delay(1000);
+                    // 동의하기 버튼 클릭
+                    HtmlElement agreeBtn = doc.GetElementById("agreeThisOne");
+                    ClickButton(agreeBtn);
+                    Thread.Sleep(500);
 
+                    // 코드 입력
+                    DoGiftCoupontCode(phonenum, cd).Wait();
+                    Thread.Sleep(500);
 
-                
+                    // 확인 버튼 입력
+                    HtmlElement confirmBtn = doc.GetElementById("couponRetrieve");
+                    ClickButton(confirmBtn);
+                    Thread.Sleep(500);
 
-                await Task.Run(() =>{
-                    foreach (var cd in codeList)
-                    {
-                        // 원하는 쿠폰 선택 ex) giftcoupon
-                        SelectCouponToChange();
-                        Thread.Sleep(500);
-
-                        HtmlUtils.DisableAlertPopup(doc);
-
-                        // 동의하기 버튼 클릭
-                        HtmlElement agreeBtn = doc.GetElementById("agreeThisOne");
-                        ClickButton(agreeBtn);
-                        Thread.Sleep(500);
-
-                        // 코드 입력
-                        DoGiftCoupontCode(br.PhoneNum, cd).Wait();
-                        Thread.Sleep(500);
-
-                        // 확인 버튼 입력
-                        HtmlElement confirmBtn = doc.GetElementById("couponRetrieve");
-                        ClickButton(confirmBtn);
-                        Thread.Sleep(500);
-
-                        // 해피캐시로 충전하기 버튼 입력
-                        ToHappyCash();
-                        Thread.Sleep(500);
-                    }
+                    // 해피캐시로 충전하기 버튼 입력
+                    ToHappyCash();
+                    Thread.Sleep(500);
                 }
-                );
             }
+            );
+        }
+
+
+        bool giftSelected = false;
+        internal void SelectCouponType(string codenum)
+        {
+            giftSelected = true;
         }
 
         public HtmlElement SelectCouponToChange()
@@ -229,6 +237,7 @@ namespace GiftACBrowser
         /// <param name="textData"></param>
         internal async void ExcuteMacro(string textData)
         {
+            doc = web.Document;
             var codeList = parseCashCode(textData);
 
             if (codeList == null)
@@ -336,6 +345,51 @@ namespace GiftACBrowser
             await Task.Delay(100);
             pwdEl.InnerText = code.issuedate;
             await Task.Delay(300);
+        }
+
+        List<HMCode> codeList = new List<HMCode>();
+
+        
+        public void GotoLogin()
+        {
+            Task.Run(() => web.Navigate("https://www.happymoney.co.kr/svc/login/login.hm"));
+        }
+
+
+
+        public string[] GetCodeStringList(string codeText)
+        {
+            var codelist = parseCashCode(codeText);
+
+            return null;
+        }
+
+        public void Clear()
+        {
+            codeList.Clear();
+        }
+
+
+
+        public void ExecuteCharge(params string[] args)
+        {
+            if(args.Length == 1)
+            {
+                ExcuteMacro(args[0]);
+            }
+            else
+            {
+                var gifttype = args[0];
+
+                switch(gifttype)
+                {
+                    case "giftcon":
+                        // code
+                        ExcuteGiftMacro(args[1], args[2]);
+                        break;
+                }
+            }
+            
         }
     }
 }
